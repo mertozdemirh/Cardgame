@@ -16,6 +16,11 @@ function handleClick() {
             remainingText.textContent = `Remaining Cards: ${data.remaining}`
             deckId = data.deck_id
         })
+        drawCardBtn.disabled = false;
+        computerScore = 0;
+        myScore= 0;
+        computerScoreEl.textContent = `Computer Score : ${computerScore}`
+        myScoreEl.textContent = `My Score : ${computerScore}`
 }
 
 newDeckBtn.addEventListener("click", handleClick)
