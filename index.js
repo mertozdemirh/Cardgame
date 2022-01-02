@@ -21,6 +21,9 @@ drawCardBtn.addEventListener("click", () => {
         .then(res => res.json())
         .then(data => {
             remainingText.textContent = `Remaining Cards: ${data.remaining}`
+            if(data.remaining===0){
+                drawCardBtn.disabled=true;
+            }
             cardsContainer.children[0].innerHTML = `
                 <img src=${data.cards[0].image} class="card" />
             `

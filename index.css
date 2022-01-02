@@ -61,3 +61,7 @@ div.top > p {
     font-size: bold;
     color:white;
 }
+button:disabled{
+    cursor: not-allowed;
+    background-color: grey;
+}
