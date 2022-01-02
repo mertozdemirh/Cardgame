@@ -25,16 +25,25 @@ drawCardBtn.addEventListener("click", () => {
         .then(res => res.json())
         .then(data => {
             remainingText.textContent = `Remaining Cards: ${data.remaining}`
-            if(data.remaining===0){
-                drawCardBtn.disabled=true;
-            }
             cardsContainer.children[0].innerHTML = `
-                <img src=${data.cards[0].image} class="card" />
+            <img src=${data.cards[0].image} class="card" />
             `
             cardsContainer.children[1].innerHTML = `
-                <img src=${data.cards[1].image} class="card" />
+            <img src=${data.cards[1].image} class="card" />
             `
             header.textContent = determineWinner(data.cards[0], data.cards[1])
+            if(data.remaining===0){
+                drawCardBtn.disabled=true;
+                    if(computerScore>myScore){
+                        header.textContent = "Computer won the game!"
+                    }
+                    else if(computerScore===myScore){
+                        header.textContent = "It's a tie game!"
+                    }
+                    else if(computerScore<myScore){
+                        header.textContent = "You won the game!"
+                    }
+            }
         })
 })
 
